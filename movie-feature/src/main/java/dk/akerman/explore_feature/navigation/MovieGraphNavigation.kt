@@ -12,6 +12,6 @@ fun NavGraphBuilder.movieGraph(navController: NavController) {
         route = MovieGraphRoutePattern
     ) {
         moviesScreen { movieId -> navController.navigateToEpisodeDetail(movieId) }
-        //episodeDetailScreen()
+        movieDetailScreen()
     }
 }

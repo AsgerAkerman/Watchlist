@@ -3,10 +3,8 @@ package dk.akerman.explore_data.data.repository
 import dk.akerman.explore_data.data.MoviePagingSource
 import dk.akerman.explore_data.data.MovieRemoteDataSource
 import dk.akerman.explore_data.data.mapToDomain
-import dk.akerman.explore_data.data.model.MovieRemote
 import dk.akerman.explore_data.domain.Movie
 import dk.akerman.explore_data.domain.MovieRepository
-import retrofit2.Response
 
 class MovieRepositoryImpl(
     private val movieRemoteDataSource: MovieRemoteDataSource

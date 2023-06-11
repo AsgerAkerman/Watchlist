@@ -1,3 +1,5 @@
+package dk.akerman.explore_feature.navigation
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -59,7 +61,7 @@ fun MovieItem(
 ) {
     Card(modifier = modifier.fillMaxWidth(), onClick = { onClick() }) {
         Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-            /*EpisodeTexts(
+            /*dk.akerman.explore_feature.navigation.EpisodeTexts(
                 episode = item.episode,
                 name = item.name,
                 airDate = item.airDate,

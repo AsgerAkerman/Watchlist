@@ -1,3 +1,5 @@
+package dk.akerman.explore_feature.navigation.viewmodels
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager

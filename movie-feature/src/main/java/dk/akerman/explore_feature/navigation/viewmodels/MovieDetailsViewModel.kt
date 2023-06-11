@@ -1,6 +1,5 @@
-package dk.akerman.explore_feature.navigation
+package dk.akerman.explore_feature.navigation.viewmodels
 
-import MovieDetailUiState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -10,6 +9,8 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dk.akerman.explore_data.domain.Movie
 import dk.akerman.explore_data.usecases.GetMovieUseCase
+import dk.akerman.explore_feature.navigation.MovieDetailArgs
+import dk.akerman.explore_feature.navigation.MovieDetailUiState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

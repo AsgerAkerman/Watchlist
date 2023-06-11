@@ -1,5 +1,6 @@
 package dk.akerman.explore_data.data
 
+import dk.akerman.explore_data.BuildConfig
 import dk.akerman.explore_data.data.model.MovieRemote
 import dk.akerman.explore_data.data.model.MoviesRemote
 import retrofit2.Response
@@ -9,10 +10,14 @@ import retrofit2.http.Query
 
 interface MovieService {
     @GET("discover/movie")
-    suspend fun getMovies(@Query("page") page: Int): Result<MoviesRemote>
+    suspend fun getMovies(
+        @Query("page") page: Int,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+    ): Response<MoviesRemote>
 
     @GET("find/{external_id}")
     suspend fun getMovie(
         @Path("external_id") externalId: String,
-    ): Result<MovieRemote>
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+    ): Response<MovieRemote>
 }

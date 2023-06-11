@@ -1,9 +1,9 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
-    id 'kotlin-kapt'
     alias libs.plugins.hilt.gradle
     alias libs.plugins.ktlint
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,6 +36,10 @@ android {
 
 kotlin {
     jvmToolchain(17)
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 dependencies {

@@ -1,6 +1,9 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.ktlint
+    id 'kotlin-kapt'
+    id("com.google.devtools.ksp").version("1.6.10-1.0.4")
 }
 
 android {
@@ -13,6 +16,13 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        
+        def apiProperties = new Properties()
+        def apiPropertiesFile = rootProject.file("local.properties")
+        apiProperties.load(new FileInputStream(apiPropertiesFile))
+
+        // Use the API key in the buildConfigField
+        buildConfigField("String", "API_KEY", "\"" + apiProperties.getProperty("API_KEY") + "\"")
     }
 
     buildTypes {
@@ -40,6 +50,10 @@ dependencies {
 
     implementation libs.retrofit2.moshi
     implementation libs.moshi
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation libs.timber
+
     implementation libs.retrofit2
     implementation libs.okhttp3
 

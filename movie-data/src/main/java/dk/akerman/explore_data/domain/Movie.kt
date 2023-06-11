@@ -1,22 +1,22 @@
 package dk.akerman.explore_data.domain
 
 data class Movies(
-    val page: Int,
-    val totalResults: Int,
-    val totalPages: Int,
-    val results: List<Movie>
+    var page: Int,
+    var totalResults: Int,
+    var totalPages: Int,
+    var results: List<Movie>
 )
 
 data class Movie(
-    val popularity: Double = 0.0,
-    val voteCount: Int = 0,
-    val video: Boolean = false,
-    val posterPath: String? = "",
-    val id: Int = 0,
-    val originalLanguage: String = "",
-    val genreIds: List<Int> = emptyList(),
-    val title: String = "",
-    val voteAverage: Double = 0.0,
-    val overview: String = "",
-    val releaseDate: String = ""
+    var popularity: Double = 0.0,
+    var voteCount: Int = 0,
+    var video: Boolean = false,
+    var posterPath: String? = "",
+    var id: Int = 0,
+    var originalLanguage: String = "",
+    var genreIds: List<Int> = emptyList(),
+    var title: String = "",
+    var voteAverage: Double = 0.0,
+    var overview: String = "",
+    var releaseDate: String = ""
 )
