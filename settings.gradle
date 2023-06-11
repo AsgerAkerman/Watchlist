@@ -14,6 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Watchlist"
 include ':app'
-include ':explore-feature'
+include ':movie-feature'
 include ':network-lib'
-include ':explore-data'
+include ':movie-data'

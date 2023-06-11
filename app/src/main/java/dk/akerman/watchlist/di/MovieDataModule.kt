@@ -12,15 +12,15 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object MorevieDataModule{
+object MovieDataModule{
 
     @Singleton
     @Provides
-    fun ProvidesMovieRemoteDataSource(service: MovieService) = MovieRemoteDataSource(service = service)
+    fun providesMovieRemoteDataSource(service: MovieService) = MovieRemoteDataSource(service = service)
 
     @Singleton
     @Provides
-    fun ProvidesMovieRepository(
+    fun providesMovieRepository(
         remoteDataSource: MovieRemoteDataSource
     ): MovieRepository {
         return MovieRepositoryImpl(remoteDataSource)

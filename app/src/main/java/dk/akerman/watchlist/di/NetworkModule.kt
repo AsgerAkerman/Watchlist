@@ -1,10 +1,12 @@
 package dk.akerman.watchlist.di
 
+import RequestInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dk.akerman.explore_data.data.MovieService
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -17,7 +19,7 @@ object RetrofitModule {
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
-            // Configure OkHttpClient as needed
+            .addInterceptor(RequestInterceptor)
             .build()
     }
 
