@@ -3,6 +3,9 @@ package dk.akerman.watchlist
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
@@ -16,6 +19,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -57,8 +62,9 @@ fun ShowcaseNavigationBar(
 
         navigationBarItem.forEach { (screen, icon) ->
             NavigationBarItem(
+                modifier = Modifier.background(Color.DarkGray),
                 icon = { Icon(imageVector = icon, contentDescription = null) },
-                label = { Text(text = screen) },
+                label = { Text(text = screen, color = Color.White) },
                 selected = currentDestination?.hierarchy?.any { it.route == screen } == true,
                 onClick = {
                     navController.navigate(screen) {

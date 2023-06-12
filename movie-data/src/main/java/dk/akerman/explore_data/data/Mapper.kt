@@ -22,7 +22,6 @@ internal fun MovieRemote.mapToDomain(): Movie {
         posterPath = posterPath,
         id = id,
         originalLanguage = originalLanguage,
-        genreIds = genreIds,
         title = title,
         voteAverage = voteAverage,
         overview = overview,

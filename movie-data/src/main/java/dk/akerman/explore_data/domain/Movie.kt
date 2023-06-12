@@ -14,7 +14,6 @@ data class Movie(
     var posterPath: String? = "",
     var id: Int = 0,
     var originalLanguage: String = "",
-    var genreIds: List<Int> = emptyList(),
     var title: String = "",
     var voteAverage: Double = 0.0,
     var overview: String = "",

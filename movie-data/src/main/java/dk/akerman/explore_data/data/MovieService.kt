@@ -15,7 +15,7 @@ interface MovieService {
         @Query("api_key") apiKey: String = BuildConfig.API_KEY
     ): Response<MoviesRemote>
 
-    @GET("find/{external_id}")
+    @GET("movie/{external_id}")
     suspend fun getMovie(
         @Path("external_id") externalId: String,
         @Query("api_key") apiKey: String = BuildConfig.API_KEY

@@ -8,14 +8,14 @@ import dk.akerman.explore_feature.navigation.viewmodels.MoviesViewModel
 
 internal const val MoviesRoutePattern = "$MovieGraphRoutePattern/list"
 
-fun NavGraphBuilder.moviesScreen(onNavigateToEpisodeDetail: (episodeId: String) -> Unit) {
+fun NavGraphBuilder.moviesScreen(onNavigateToMovieDetails: (episodeId: String) -> Unit) {
     composable(MoviesRoutePattern) {
         val viewModel: MoviesViewModel = hiltViewModel()
         val episodeItems = viewModel.moviesFlow.collectAsLazyPagingItems()
 
         MoviesScreen(
             episodeItems = episodeItems,
-            onNavigateToEpisodeDetail = onNavigateToEpisodeDetail
+            onNavigateToMovieDetails = onNavigateToMovieDetails
         )
     }
 }
