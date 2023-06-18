@@ -1,0 +1,30 @@
+package dk.akerman.explore_data.data.remote
+
+import dk.akerman.explore_data.data.remote.model.MovieRemote
+import dk.akerman.explore_data.data.remote.model.MoviesRemote
+import dk.akerman.explore_data.domain.remote.Movie
+import dk.akerman.explore_data.domain.remote.Movies
+
+internal fun MoviesRemote.mapToDomain(): Movies {
+    return Movies(
+        page = page,
+        totalResults = totalResults,
+        totalPages = totalPages,
+        results = results.map { it.mapToDomain() }
+    )
+}
+
+internal fun MovieRemote.mapToDomain(): Movie {
+    return Movie(
+        popularity = popularity,
+        voteCount = voteCount,
+        video = video,
+        posterPath = posterPath,
+        id = id,
+        originalLanguage = originalLanguage,
+        title = title,
+        voteAverage = voteAverage,
+        overview = overview,
+        releaseDate = releaseDate
+    )
+}

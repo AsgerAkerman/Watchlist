@@ -26,16 +26,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import dk.akerman.favorites_data.FavoriteUiState
-import dk.akerman.favorites_data.domain.model.Movie
-import kotlinx.coroutines.flow.Flow
+import dk.akerman.explore_data.domain.local.model.Movie
 
 const val BASE_URL = "https://image.tmdb.org/t/p/w500/"
 

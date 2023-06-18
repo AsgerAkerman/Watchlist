@@ -7,9 +7,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dk.akerman.favorites_data.data.MovieDao
-import dk.akerman.favorites_data.data.repository.FavoritesRepositoryImpl
-import dk.akerman.favorites_data.domain.repository.FavoritesRepository
+import dk.akerman.explore_data.data.local.MovieDao
+import dk.akerman.explore_data.data.local.repository.FavoritesRepositoryImpl
+import dk.akerman.explore_data.domain.local.repository.FavoritesRepository
 import javax.inject.Singleton
 
 @Module

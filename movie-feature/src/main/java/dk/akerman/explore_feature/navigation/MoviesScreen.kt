@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 import coil.compose.AsyncImage
-import dk.akerman.explore_data.remote.domain.Movie
+import dk.akerman.explore_data.domain.remote.Movie
 
 const val BASE_URL = "https://image.tmdb.org/t/p/w500/"
 

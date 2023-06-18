@@ -3,11 +3,10 @@ package dk.akerman.favorites_feature
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dk.akerman.favorites_data.FavoriteUiState
-import dk.akerman.favorites_data.domain.model.Movie
-import dk.akerman.favorites_data.domain.usecase.DeleteFavoriteUseCase
-import dk.akerman.favorites_data.domain.usecase.GetFavoritesUseCase
-import dk.akerman.favorites_data.domain.usecase.SetFavoriteUseCase
+import dk.akerman.explore_data.domain.local.model.Movie
+import dk.akerman.explore_data.domain.local.usecase.DeleteFavoriteUseCase
+import dk.akerman.explore_data.domain.local.usecase.GetFavoritesUseCase
+import dk.akerman.explore_data.domain.local.usecase.SetFavoriteUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
