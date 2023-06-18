@@ -3,13 +3,12 @@ package dk.akerman.watchlist
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -20,14 +19,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import dk.akerman.explore_feature.navigation.MovieGraphRoutePattern
+import dk.akerman.explore_feature.navigation.navigation.MovieGraphRoutePattern
+import dk.akerman.favorites_feature.FavoritesRoutePattern
 import dk.akerman.watchlist.ui.theme.WatchlistTheme
 
 @AndroidEntryPoint
@@ -57,8 +56,9 @@ fun ShowcaseNavigationBar(
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
         val navigationBarItem = mapOf(
-            MovieGraphRoutePattern to Icons.Filled.List
-        )
+            MovieGraphRoutePattern to Icons.Filled.List,
+            FavoritesRoutePattern to Icons.Filled.Favorite,
+            )
 
         navigationBarItem.forEach { (screen, icon) ->
             NavigationBarItem(

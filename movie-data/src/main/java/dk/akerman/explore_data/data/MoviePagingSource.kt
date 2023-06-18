@@ -14,7 +14,6 @@ class MoviePagingSource(
         return movieRemoteDataSource.fetchMovies(nextPage).fold(
             onSuccess = {
                 Timber.d("Hey ${it}")
-
                 val nextKey = if (it.page < it.totalPages) it.page + 1 else null
 
                 LoadResult.Page(

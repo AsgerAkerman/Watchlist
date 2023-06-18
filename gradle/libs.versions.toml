@@ -23,6 +23,7 @@ junit = "4.13.2"
 kotlin = "1.8.10"
 ktlint = "11.0.0"
 timber = "5.0.1"
+room = "2.5.1"
 
 [libraries]
 android-activity = { module = "androidx.activity:activity-compose", version.ref = "android-activity" }
@@ -45,6 +46,10 @@ compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation" }
+
+room-runtime = {module = "androidx.room:room-runtime", version.ref = "room"}
+room-compiler = {module = "androidx.room:room-compiler", version.ref = "room"}
+room-ktx = {module = "androidx.room:room-ktx", version.ref = "room"}
 
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }

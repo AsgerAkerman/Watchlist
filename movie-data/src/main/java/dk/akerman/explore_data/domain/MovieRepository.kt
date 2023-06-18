@@ -6,6 +6,5 @@ import retrofit2.Response
 
 interface MovieRepository {
     fun getMovies(): MoviePagingSource
-
     suspend fun getMovie(movieId: String): Result<Movie>
 }

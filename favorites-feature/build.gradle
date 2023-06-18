@@ -4,11 +4,10 @@ plugins {
     alias libs.plugins.hilt.gradle
     alias libs.plugins.ktlint
     id 'kotlin-kapt'
-    id("com.google.devtools.ksp").version("1.6.10-1.0.4")
 }
 
 android {
-    namespace 'dk.akerman.favorites_data'
+    namespace 'dk.akerman.favorites_feature'
     compileSdk 33
 
     defaultConfig {
@@ -16,41 +15,53 @@ android {
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
+    }
 }
 
 kotlin {
     jvmToolchain(17)
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
-    implementation libs.hilt.android
+    implementation project(':favorites-data')
     implementation libs.android.core
+    implementation libs.android.lifecycle.viewmodel
+    implementation libs.android.navigation
     implementation libs.android.paging
-    implementation libs.room.ktx
-    kapt libs.room.compiler
-    kapt libs.hilt.compiler
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-    implementation libs.retrofit2.moshi
+    implementation libs.compose.paging
+    implementation libs.bundles.compose
+    debugImplementation libs.bundles.compose.debug
+
+    implementation libs.hilt.android
+    implementation libs.hilt.navigation
+    kapt libs.hilt.compiler
+
+    implementation libs.coil
     implementation libs.timber
 
-    implementation libs.retrofit2
-    implementation libs.okhttp3
+    testImplementation libs.junit
 
     androidTestImplementation libs.android.junit
     androidTestImplementation libs.android.espresso

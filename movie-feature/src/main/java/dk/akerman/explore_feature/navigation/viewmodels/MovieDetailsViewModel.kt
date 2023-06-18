@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dk.akerman.explore_data.domain.Movie
 import dk.akerman.explore_data.usecases.GetMovieUseCase
-import dk.akerman.explore_feature.navigation.MovieDetailArgs
+import dk.akerman.explore_feature.navigation.navigation.MovieDetailArgs
 import dk.akerman.explore_feature.navigation.MovieDetailUiState
 import kotlinx.coroutines.launch
 import javax.inject.Inject

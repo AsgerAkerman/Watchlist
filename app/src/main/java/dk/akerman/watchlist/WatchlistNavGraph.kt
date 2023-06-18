@@ -5,9 +5,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import dk.akerman.explore_feature.navigation.MovieGraphRoutePattern
-import dk.akerman.explore_feature.navigation.movieGraph
-
+import dk.akerman.explore_feature.navigation.navigation.MovieGraphRoutePattern
+import dk.akerman.explore_feature.navigation.navigation.movieGraph
+import dk.akerman.favorites_feature.FavoritesScreen
+import dk.akerman.favorites_feature.favoritesScreen
 
 @Composable
 fun WatchListNavGraph(
@@ -21,5 +22,6 @@ fun WatchListNavGraph(
         modifier = modifier
     ) {
         movieGraph(navHostController)
+        favoritesScreen()
     }
 }

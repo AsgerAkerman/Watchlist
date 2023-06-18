@@ -1,4 +1,4 @@
-package dk.akerman.explore_feature.navigation
+package dk.akerman.explore_feature.navigation.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
