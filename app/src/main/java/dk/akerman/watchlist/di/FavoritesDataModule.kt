@@ -21,7 +21,7 @@ object FavoritesDataModule {
             context,
             FavoriteDatabase::class.java,
             DATABASE_NAME
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 
     @Provides

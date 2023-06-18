@@ -25,6 +25,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 import dk.akerman.explore_feature.navigation.navigation.MovieGraphRoutePattern
 import dk.akerman.favorites_feature.FavoritesRoutePattern
 import dk.akerman.watchlist.ui.theme.WatchlistTheme

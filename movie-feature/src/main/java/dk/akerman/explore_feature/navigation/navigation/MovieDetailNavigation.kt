@@ -19,7 +19,9 @@ internal fun NavGraphBuilder.movieDetailScreen() {
     composable("$MovieRoutePattern{$MovieIdArgs}") {
         val viewModel: MovieDetailsViewModel = hiltViewModel()
         val uiState = viewModel.uiState
-        MovieDetailScreen(uiState = uiState)
+        MovieDetailScreen(uiState = uiState){ movie ->
+            viewModel.favoriteClicked(uiState.data)
+        }
     }
 }
 internal fun NavController.navigateToEpisodeDetail(episodeId: String) {

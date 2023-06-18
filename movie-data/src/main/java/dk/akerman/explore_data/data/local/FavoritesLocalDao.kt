@@ -18,5 +18,8 @@ interface MovieDao {
 
     @Query("DELETE FROM movies WHERE id = :movieId")
     suspend fun deleteMovie(movieId: Int)
+
+    @Query("SELECT EXISTS(SELECT * FROM movies WHERE id = :movieId)")
+    suspend fun doesMovieExist(movieId: Int): Boolean
 }
 

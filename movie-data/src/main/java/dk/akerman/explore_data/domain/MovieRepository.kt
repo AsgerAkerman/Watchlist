@@ -9,5 +9,6 @@ interface MovieRepository {
 
     suspend fun setFavorite(movie: Movie)
     suspend fun removeFavorite(id: String)
+    suspend fun isMovieFavorite(movieId: String): Boolean
     suspend fun getMovie(movieId: String): Result<Movie>
 }

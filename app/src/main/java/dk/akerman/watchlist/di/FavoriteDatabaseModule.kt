@@ -9,7 +9,7 @@ import dk.akerman.explore_data.data.local.model.MovieLocal
 
 const val DATABASE_NAME = "favorite-database"
 
-@Database(entities = [MovieLocal::class], version = 1)
+@Database(entities = [MovieLocal::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class FavoriteDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao

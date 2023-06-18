@@ -1,6 +1,7 @@
 package dk.akerman.explore_feature.navigation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,10 +29,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import dk.akerman.explore_data.domain.Movie
 
 @Composable
 fun MovieDetailScreen(
-    uiState: MovieDetailUiState
+    uiState: MovieDetailUiState,
+    onFavoriteClicked: (movie: Movie) -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -48,10 +51,8 @@ fun MovieDetailScreen(
             )
             Spacer(modifier = Modifier.height(8.dp))
             MovieDetailDescription(
-                voteAverage = uiState.data.voteAverage.toString(),
-                releaseDate = uiState.data.releaseDate,
-                title = uiState.data.title,
-                overview = uiState.data.overview
+                uiState = uiState,
+                onFavoriteClicked = onFavoriteClicked
             )
         }
     }
@@ -59,10 +60,8 @@ fun MovieDetailScreen(
 
 @Composable
 fun MovieDetailDescription(
-    voteAverage: String,
-    title: String,
-    releaseDate: String,
-    overview: String,
+    uiState: MovieDetailUiState,
+    onFavoriteClicked: (movie: Movie) -> Unit
 ) {
     Column(
         Modifier
@@ -75,24 +74,25 @@ fun MovieDetailDescription(
                 Row {
                     Text(
                         modifier = Modifier.weight(2f),
-                        text = title,
+                        text = uiState.data.title,
                         style = MaterialTheme.typography.headlineSmall,
                         color = Color.White,
                     )
                     Icon(
                         modifier = Modifier
-                            .size(20.dp)
+                            .size(30.dp)
                             .weight(1f)
-                            .align(Alignment.CenterVertically),
+                            .align(Alignment.CenterVertically)
+                            .clickable { onFavoriteClicked(uiState.data) },
                         imageVector = Icons.Outlined.Favorite,
-                        contentDescription = ""
+                        contentDescription = "",
                     )
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 Row {
                     Text(
                         modifier = Modifier.align(Alignment.CenterVertically),
-                        text = voteAverage,
+                        text = uiState.data.voteAverage.toString(),
                         style = MaterialTheme.typography.labelMedium, color = Color.White,
 
                         )
@@ -103,7 +103,7 @@ fun MovieDetailDescription(
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = releaseDate, modifier = Modifier.align(Alignment.CenterVertically),
+                        text = uiState.data.releaseDate, modifier = Modifier.align(Alignment.CenterVertically),
                         style = MaterialTheme.typography.labelMedium,
                         color = Color.White,
                     )
@@ -112,7 +112,7 @@ fun MovieDetailDescription(
         }
         Text(
             overflow = TextOverflow.Ellipsis,
-            text = overview,
+            text = uiState.data.overview,
             color = Color.White,
             style = MaterialTheme.typography.labelMedium,
         )

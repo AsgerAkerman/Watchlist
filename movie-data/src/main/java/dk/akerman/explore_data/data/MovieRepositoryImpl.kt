@@ -26,6 +26,10 @@ class MovieRepositoryImpl(
         localDataSource.deleteMovie(movieId = id.toInt())
     }
 
+    override suspend fun isMovieFavorite(movieId: String): Boolean {
+        return localDataSource.doesMovieExist(movieId = movieId.toInt())
+    }
+
     override fun getMovies(): MoviePagingSource {
         return MoviePagingSource(remoteDataSource)
     }
