@@ -7,10 +7,6 @@ data class Movies(
     var results: List<Movie>
 )
 
-data class Favorites(
-    var favorites: List<Movie>,
-)
-
 data class Movie(
     var popularity: Double = 0.0,
     var voteCount: Int = 0,

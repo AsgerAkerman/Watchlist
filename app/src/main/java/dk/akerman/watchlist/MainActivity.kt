@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,7 +24,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import dk.akerman.explore_feature.navigation.navigation.MovieGraphRoutePattern
 import dk.akerman.favorites_feature.FavoritesRoutePattern
 import dk.akerman.watchlist.ui.theme.WatchlistTheme
@@ -64,7 +62,16 @@ fun ShowcaseNavigationBar(
         navigationBarItem.forEach { (screen, icon) ->
             NavigationBarItem(
                 modifier = Modifier.background(Color.DarkGray),
-                icon = { Icon(imageVector = icon, contentDescription = null) },
+                icon = {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = if (currentDestination?.hierarchy?.any { it.route == screen } == true)
+                            Color.DarkGray
+                        else
+                            Color.White
+                    )
+                },
                 label = { Text(text = screen, color = Color.White) },
                 selected = currentDestination?.hierarchy?.any { it.route == screen } == true,
                 onClick = {

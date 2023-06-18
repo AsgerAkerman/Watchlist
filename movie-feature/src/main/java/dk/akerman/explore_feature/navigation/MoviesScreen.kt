@@ -110,22 +110,12 @@ fun MovieDescription(
 ) {
     Row(Modifier.fillMaxWidth()) {
         Column {
-            Row {
-                Text(
-                    modifier = Modifier.weight(2f),
-                    text = title,
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = Color.White
-                )
-                Icon(
-                    modifier = Modifier
-                        .size(20.dp)
-                        .weight(1f)
-                        .align(Alignment.CenterVertically),
-                    imageVector = Icons.Outlined.Favorite,
-                    contentDescription = ""
-                )
-            }
+            Text(
+                modifier = Modifier.weight(2f),
+                text = title,
+                style = MaterialTheme.typography.headlineSmall,
+                color = Color.White
+            )
             Spacer(modifier = Modifier.height(8.dp))
             Row {
                 Text(

@@ -24,6 +24,9 @@ kotlin = "1.8.10"
 ktlint = "11.0.0"
 timber = "5.0.1"
 room = "2.5.1"
+accompanist = "0.30.1"
+mockk = "1.13.5"
+kotlintest = "1.7.1"
 
 [libraries]
 android-activity = { module = "androidx.activity:activity-compose", version.ref = "android-activity" }
@@ -61,6 +64,9 @@ retrofit2-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.r
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 junit = { module = "junit:junit", version.ref = "junit" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+accomponist = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist"}
+mockk = { module = "io.mockk:mockk-android", version.ref = "mockk"}
+kotlin-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlintest"}
 
 [bundles]
 compose = ["compose-ui", "compose-tooling-preview", "compose-material"]

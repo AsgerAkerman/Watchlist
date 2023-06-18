@@ -49,8 +49,8 @@ dependencies {
     implementation libs.android.lifecycle.viewmodel
     implementation libs.android.navigation
     implementation libs.android.paging
+    implementation libs.accomponist
 
-    implementation libs.compose.paging
     implementation libs.bundles.compose
     debugImplementation libs.bundles.compose.debug
 

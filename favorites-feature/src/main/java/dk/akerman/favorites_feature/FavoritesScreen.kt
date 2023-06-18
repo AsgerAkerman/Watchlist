@@ -15,6 +15,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
@@ -39,7 +42,7 @@ const val BASE_URL = "https://image.tmdb.org/t/p/w500/"
 @Composable
 fun FavoritesScreen(
     favoriteMovies: FavoriteUiState,
-    onNavigateToMovieDetails: (movieId: String) -> Unit
+    removeFromFavorites: (movieId: String) -> Unit
 ) {
     when (favoriteMovies) {
         is FavoriteUiState.Loading -> {
@@ -51,13 +54,13 @@ fun FavoritesScreen(
                     .fillMaxSize()
                     .background(Color.Black)
             ) {
-                LazyColumn(
-                    contentPadding = PaddingValues(24.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                LazyVerticalGrid(
+                    columns = GridCells.Adaptive(128.dp),
+                    contentPadding = PaddingValues(24.dp)
                 ) {
                     items(favoriteMovies.movies) { item ->
                         MovieItem(item = item) {
-                            onNavigateToMovieDetails(item.id.toString())
+                            removeFromFavorites(item.id.toString())
                         }
                     }
                 }
@@ -78,13 +81,14 @@ fun MovieItem(
 ) {
     Card(
         modifier = modifier
-            .fillMaxWidth()
+            .padding(4.dp)
+            .aspectRatio(3/4f)
             .background(Color.Black), onClick = { onClick() },
         colors = CardDefaults.cardColors(
             containerColor = Color.DarkGray,
         )
     ) {
-        Column(modifier = Modifier.padding(12.dp)) {
+        Column(modifier = Modifier.padding(12.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             AsyncImage(
                 model = BASE_URL + item.posterPath,
                 contentDescription = null,
@@ -93,64 +97,20 @@ fun MovieItem(
                     .aspectRatio(1f)
             )
             Spacer(modifier = Modifier.height(8.dp))
-            MovieDescription(
-                voteAverage = item.voteAverage.toString(),
-                releaseDate = item.releaseDate,
-                title = item.title,
-                overview = item.overview
+            Text(
+                modifier = Modifier.weight(2f),
+                text = item.title,
+                style = MaterialTheme.typography.labelMedium,
+                color = Color.White
+            )
+            Icon(
+                modifier = Modifier
+                    .size(40.dp)
+                    .weight(1f),
+                imageVector = Icons.Outlined.Favorite,
+                contentDescription = "",
+                tint = Color.Red
             )
         }
     }
-}
-
-@Composable
-fun MovieDescription(
-    voteAverage: String,
-    title: String,
-    releaseDate: String,
-    overview: String,
-) {
-    Row(Modifier.fillMaxWidth()) {
-        Column {
-            Row {
-                Text(
-                    modifier = Modifier.weight(2f),
-                    text = title,
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = Color.White
-                )
-                Icon(
-                    modifier = Modifier
-                        .size(20.dp)
-                        .weight(1f)
-                        .align(Alignment.CenterVertically),
-                    imageVector = Icons.Outlined.Favorite,
-                    contentDescription = ""
-                )
-            }
-            Spacer(modifier = Modifier.height(8.dp))
-            Row {
-                Text(
-                    modifier = Modifier.align(Alignment.CenterVertically),
-                    color = Color.White,
-                    text = voteAverage,
-                    style = MaterialTheme.typography.labelMedium
-                )
-                Icon(tint = Color.Yellow, imageVector = Icons.Filled.Star, contentDescription = "")
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = releaseDate, modifier = Modifier.align(Alignment.CenterVertically),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = Color.White,
-                )
-            }
-        }
-    }
-    Text(
-        overflow = TextOverflow.Ellipsis,
-        text = overview,
-        style = MaterialTheme.typography.labelMedium,
-        maxLines = 3,
-        color = Color.White,
-    )
 }

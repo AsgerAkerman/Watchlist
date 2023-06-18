@@ -6,19 +6,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 
-const val FavoritesRoutePattern = "favorites"
+const val FavoritesRoutePattern = "Favorites"
 
 fun NavGraphBuilder.favoritesScreen() {
     composable(FavoritesRoutePattern) {
         val viewModel: FavoritesViewModel = hiltViewModel()
 
         val favoritesState by viewModel.favorites.collectAsState()
-
-        FavoritesScreen(
-            favoriteMovies = favoritesState,
-            onNavigateToMovieDetails = { movieId ->
-
-            }
-        )
+        FavoritesScreen(favoriteMovies = favoritesState) { movie ->
+            viewModel.removeMovieFromFavorites(movie)
+        }
     }
 }

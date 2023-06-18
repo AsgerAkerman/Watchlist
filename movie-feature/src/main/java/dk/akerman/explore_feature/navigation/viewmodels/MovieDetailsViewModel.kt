@@ -37,7 +37,7 @@ class MovieDetailsViewModel @Inject constructor(
         fetchEpisode()
     }
 
-    private fun fetchEpisode() {
+    fun fetchEpisode() {
         viewModelScope.launch {
             val episodeId = episodeDetailArgs.MovieId
             val data = getMovie(episodeId).getOrDefault(Movie())
@@ -47,18 +47,10 @@ class MovieDetailsViewModel @Inject constructor(
 
     fun favoriteClicked(movie: Movie) = viewModelScope.launch(Dispatchers.IO) {
         val isFavorite = isFavoriteUseCase(movie.id.toString())
-        if(isFavorite) {
-            try {
-                removeFavorites(movie.id.toString())
-            } catch (e: Exception) {
-                Timber.d("Hey $e")
-            }
+        if (isFavorite) {
+            removeFavorites(movie.id.toString())
         } else {
-            try {
-                setFavorites(movie)
-            } catch (e: Exception) {
-                Timber.d("Hey $e")
-            }
+            setFavorites(movie)
         }
     }
 }

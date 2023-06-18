@@ -17,8 +17,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -78,15 +76,19 @@ fun MovieDetailDescription(
                         style = MaterialTheme.typography.headlineSmall,
                         color = Color.White,
                     )
-                    Icon(
-                        modifier = Modifier
-                            .size(30.dp)
-                            .weight(1f)
-                            .align(Alignment.CenterVertically)
-                            .clickable { onFavoriteClicked(uiState.data) },
-                        imageVector = Icons.Outlined.Favorite,
-                        contentDescription = "",
-                    )
+                    Box(modifier = Modifier
+                        .size(30.dp)
+                        .weight(1f)
+                        .align(Alignment.CenterVertically),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            modifier = Modifier.clickable { onFavoriteClicked(uiState.data) },
+                            imageVector = Icons.Outlined.Favorite,
+                            contentDescription = "",
+                            tint = Color.Red
+                        )
+                    }
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 Row {

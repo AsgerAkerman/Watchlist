@@ -6,24 +6,24 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dk.akerman.explore_data.domain.Movie
 import dk.akerman.explore_data.domain.local.DeleteFavoriteUseCase
 import dk.akerman.explore_data.domain.local.GetFavoritesUseCase
+import dk.akerman.explore_data.domain.local.IsFavoriteUseCase
 import dk.akerman.explore_data.domain.local.SetFavoriteUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class FavoritesViewModel @Inject constructor(
     private val getFavorites: GetFavoritesUseCase,
-    private val setFavorites: SetFavoriteUseCase,
-    private val removeFavorites: DeleteFavoriteUseCase
+    private val removeFavorites: DeleteFavoriteUseCase,
 ) : ViewModel() {
 
     private val _favorites = MutableStateFlow<FavoriteUiState>(FavoriteUiState.Loading)
     val favorites: StateFlow<FavoriteUiState> = _favorites
-
     init {
         loadFavorites()
     }
@@ -36,11 +36,9 @@ class FavoritesViewModel @Inject constructor(
         }
     }
 
-    fun setFavorite(movie: Movie) = viewModelScope.launch(Dispatchers.IO) {
-        setFavorites(movie)
-    }
-
-    fun removeFavorite(movieId: String) = viewModelScope.launch(Dispatchers.IO) {
-        removeFavorites(movieId)
+    fun removeMovieFromFavorites(movieId: String) {
+        viewModelScope.launch {
+            removeFavorites(movieId)
+        }
     }
 }

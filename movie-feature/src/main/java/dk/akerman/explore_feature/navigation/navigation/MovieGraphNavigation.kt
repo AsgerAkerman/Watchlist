@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.navigation
 
-const val MovieGraphRoutePattern = "movie"
+const val MovieGraphRoutePattern = "Explore movies"
 
 fun NavGraphBuilder.movieGraph(navController: NavController) {
     navigation(
