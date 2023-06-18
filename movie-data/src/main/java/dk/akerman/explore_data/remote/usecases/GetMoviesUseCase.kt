@@ -1,7 +1,7 @@
-package dk.akerman.explore_data.usecases
+package dk.akerman.explore_data.remote.usecases
 
-import dk.akerman.explore_data.data.MoviePagingSource
-import dk.akerman.explore_data.domain.MovieRepository
+import dk.akerman.explore_data.remote.data.MoviePagingSource
+import dk.akerman.explore_data.remote.domain.MovieRepository
 import javax.inject.Inject
 
 class GetMoviesUseCase @Inject constructor(

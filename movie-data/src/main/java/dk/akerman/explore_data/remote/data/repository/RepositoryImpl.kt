@@ -1,10 +1,10 @@
-package dk.akerman.explore_data.data.repository
+package dk.akerman.explore_data.remote.data.repository
 
-import dk.akerman.explore_data.data.MoviePagingSource
-import dk.akerman.explore_data.data.MovieRemoteDataSource
-import dk.akerman.explore_data.data.mapToDomain
-import dk.akerman.explore_data.domain.Movie
-import dk.akerman.explore_data.domain.MovieRepository
+import dk.akerman.explore_data.remote.data.MoviePagingSource
+import dk.akerman.explore_data.remote.data.MovieRemoteDataSource
+import dk.akerman.explore_data.remote.data.mapToDomain
+import dk.akerman.explore_data.remote.domain.Movie
+import dk.akerman.explore_data.remote.domain.MovieRepository
 
 class MovieRepositoryImpl(
     private val movieRemoteDataSource: MovieRemoteDataSource

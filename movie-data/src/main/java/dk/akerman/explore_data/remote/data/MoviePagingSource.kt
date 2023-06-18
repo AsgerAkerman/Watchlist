@@ -1,8 +1,8 @@
-package dk.akerman.explore_data.data
+package dk.akerman.explore_data.remote.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import dk.akerman.explore_data.domain.Movie
+import dk.akerman.explore_data.remote.domain.Movie
 import timber.log.Timber
 
 class MoviePagingSource(

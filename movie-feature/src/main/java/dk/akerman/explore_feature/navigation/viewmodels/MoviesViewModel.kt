@@ -6,7 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dk.akerman.explore_data.usecases.GetMoviesUseCase
+import dk.akerman.explore_data.remote.usecases.GetMoviesUseCase
 import javax.inject.Inject
 
 @HiltViewModel

@@ -7,8 +7,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dk.akerman.explore_data.domain.Movie
-import dk.akerman.explore_data.usecases.GetMovieUseCase
+import dk.akerman.explore_data.remote.domain.Movie
+import dk.akerman.explore_data.remote.usecases.GetMovieUseCase
 import dk.akerman.explore_feature.navigation.navigation.MovieDetailArgs
 import dk.akerman.explore_feature.navigation.MovieDetailUiState
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieDetailsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val getMovie: GetMovieUseCase
+    private val getMovie: GetMovieUseCase,
 ) : ViewModel() {
 
     private val episodeDetailArgs = MovieDetailArgs(savedStateHandle)
@@ -36,4 +36,5 @@ class MovieDetailsViewModel @Inject constructor(
             uiState = uiState.copy(data = data)
         }
     }
+
 }

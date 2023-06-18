@@ -1,7 +1,7 @@
-package dk.akerman.explore_data.usecases
+package dk.akerman.explore_data.remote.usecases
 
-import dk.akerman.explore_data.domain.Movie
-import dk.akerman.explore_data.domain.MovieRepository
+import dk.akerman.explore_data.remote.domain.Movie
+import dk.akerman.explore_data.remote.domain.MovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package dk.akerman.explore_data.domain
+package dk.akerman.explore_data.remote.domain
 
 data class Movies(
     var page: Int,

@@ -1,4 +1,4 @@
-package dk.akerman.explore_data.data.model
+package dk.akerman.explore_data.remote.data.model
 
 import com.google.gson.annotations.SerializedName
 

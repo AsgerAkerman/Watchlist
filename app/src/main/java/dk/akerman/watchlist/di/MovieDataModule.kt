@@ -4,10 +4,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dk.akerman.explore_data.data.MovieRemoteDataSource
-import dk.akerman.explore_data.data.MovieService
-import dk.akerman.explore_data.data.repository.MovieRepositoryImpl
-import dk.akerman.explore_data.domain.MovieRepository
+import dk.akerman.explore_data.remote.data.MovieRemoteDataSource
+import dk.akerman.explore_data.remote.data.MovieService
+import dk.akerman.explore_data.remote.data.repository.MovieRepositoryImpl
+import dk.akerman.explore_data.remote.domain.MovieRepository
 import javax.inject.Singleton
 
 @Module

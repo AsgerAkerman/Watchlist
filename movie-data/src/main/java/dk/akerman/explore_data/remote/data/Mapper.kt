@@ -1,9 +1,9 @@
-package dk.akerman.explore_data.data
+package dk.akerman.explore_data.remote.data
 
-import dk.akerman.explore_data.data.model.MovieRemote
-import dk.akerman.explore_data.data.model.MoviesRemote
-import dk.akerman.explore_data.domain.Movie
-import dk.akerman.explore_data.domain.Movies
+import dk.akerman.explore_data.remote.data.model.MovieRemote
+import dk.akerman.explore_data.remote.data.model.MoviesRemote
+import dk.akerman.explore_data.remote.domain.Movie
+import dk.akerman.explore_data.remote.domain.Movies
 
 internal fun MoviesRemote.mapToDomain(): Movies {
     return Movies(

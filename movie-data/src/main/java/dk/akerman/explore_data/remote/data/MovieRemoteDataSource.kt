@@ -1,7 +1,7 @@
-package dk.akerman.explore_data.data
+package dk.akerman.explore_data.remote.data
 
-import dk.akerman.explore_data.data.model.MovieRemote
-import dk.akerman.explore_data.data.model.MoviesRemote
+import dk.akerman.explore_data.remote.data.model.MovieRemote
+import dk.akerman.explore_data.remote.data.model.MoviesRemote
 
 class MovieRemoteDataSource(private val service: MovieService) {
     suspend fun fetchMovies(page: Int): Result<MoviesRemote> {

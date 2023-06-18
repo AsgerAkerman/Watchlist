@@ -1,8 +1,8 @@
-package dk.akerman.explore_data.data
+package dk.akerman.explore_data.remote.data
 
 import dk.akerman.explore_data.BuildConfig
-import dk.akerman.explore_data.data.model.MovieRemote
-import dk.akerman.explore_data.data.model.MoviesRemote
+import dk.akerman.explore_data.remote.data.model.MovieRemote
+import dk.akerman.explore_data.remote.data.model.MoviesRemote
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
