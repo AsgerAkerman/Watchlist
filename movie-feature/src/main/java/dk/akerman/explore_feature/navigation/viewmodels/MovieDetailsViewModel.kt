@@ -7,7 +7,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dk.akerman.explore_data.domain.remote.Movie
+import dk.akerman.explore_data.domain.Movie
 import dk.akerman.explore_data.domain.remote.GetMovieUseCase
 import dk.akerman.explore_feature.navigation.navigation.MovieDetailArgs
 import dk.akerman.explore_feature.navigation.MovieDetailUiState

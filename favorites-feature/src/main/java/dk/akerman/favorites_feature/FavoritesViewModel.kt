@@ -3,10 +3,10 @@ package dk.akerman.favorites_feature
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dk.akerman.explore_data.domain.local.model.Movie
-import dk.akerman.explore_data.domain.local.usecase.DeleteFavoriteUseCase
-import dk.akerman.explore_data.domain.local.usecase.GetFavoritesUseCase
-import dk.akerman.explore_data.domain.local.usecase.SetFavoriteUseCase
+import dk.akerman.explore_data.domain.Movie
+import dk.akerman.explore_data.domain.local.DeleteFavoriteUseCase
+import dk.akerman.explore_data.domain.local.GetFavoritesUseCase
+import dk.akerman.explore_data.domain.local.SetFavoriteUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -44,5 +44,3 @@ class FavoritesViewModel @Inject constructor(
         removeFavorites(movieId)
     }
 }
-
-

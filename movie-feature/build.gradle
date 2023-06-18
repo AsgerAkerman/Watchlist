@@ -45,7 +45,6 @@ kapt {
 dependencies {
 
     implementation project(':movie-data')
-    implementation project(':favorites-data')
     implementation libs.android.core
     implementation libs.android.lifecycle.viewmodel
     implementation libs.android.navigation

@@ -58,7 +58,6 @@ kapt {
 dependencies {
     implementation project(':network-lib')
     implementation project(':movie-data')
-    implementation project(':favorites-data')
     implementation project(':favorites-feature')
     implementation project(':movie-feature')
 

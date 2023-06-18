@@ -32,7 +32,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import dk.akerman.explore_data.domain.local.model.Movie
+import dk.akerman.explore_data.domain.Movie
 
 const val BASE_URL = "https://image.tmdb.org/t/p/w500/"
 

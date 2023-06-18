@@ -1,10 +1,14 @@
-package dk.akerman.explore_data.domain.remote
+package dk.akerman.explore_data.domain
 
 data class Movies(
     var page: Int,
     var totalResults: Int,
     var totalPages: Int,
     var results: List<Movie>
+)
+
+data class Favorites(
+    var favorites: List<Movie>,
 )
 
 data class Movie(

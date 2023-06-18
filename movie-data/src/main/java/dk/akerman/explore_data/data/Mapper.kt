@@ -1,7 +1,7 @@
 package dk.akerman.explore_data.data
 
 import dk.akerman.explore_data.data.local.model.MovieLocal
-import dk.akerman.explore_data.domain.local.model.Movie
+import dk.akerman.explore_data.domain.Movie
 
 fun MovieLocal.mapToDomain(): Movie {
     return Movie(
@@ -10,11 +10,7 @@ fun MovieLocal.mapToDomain(): Movie {
         voteCount = voteCount,
         video = video,
         posterPath = posterPath,
-        adult = adult,
-        backdropPath = backdropPath,
         originalLanguage = originalLanguage,
-        originalTitle = originalTitle,
-        genreIds = genreIds,
         title = title,
         voteAverage = voteAverage,
         overview = overview,
@@ -29,11 +25,7 @@ fun Movie.mapToData(): MovieLocal {
         voteCount = voteCount,
         video = video,
         posterPath = posterPath,
-        adult = adult,
-        backdropPath = backdropPath,
         originalLanguage = originalLanguage,
-        originalTitle = originalTitle,
-        genreIds = genreIds,
         title = title,
         voteAverage = voteAverage,
         overview = overview,

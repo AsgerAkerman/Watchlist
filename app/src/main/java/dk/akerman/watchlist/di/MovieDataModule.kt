@@ -4,10 +4,11 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dk.akerman.explore_data.data.MovieRepositoryImpl
+import dk.akerman.explore_data.data.local.MovieDao
 import dk.akerman.explore_data.data.remote.MovieRemoteDataSource
 import dk.akerman.explore_data.data.remote.MovieService
-import dk.akerman.explore_data.data.remote.repository.MovieRepositoryImpl
-import dk.akerman.explore_data.domain.remote.MovieRepository
+import dk.akerman.explore_data.domain.MovieRepository
 import javax.inject.Singleton
 
 @Module
@@ -21,8 +22,9 @@ object MovieDataModule{
     @Singleton
     @Provides
     fun providesMovieRepository(
-        remoteDataSource: MovieRemoteDataSource
+        remoteDataSource: MovieRemoteDataSource,
+        localDataSource: MovieDao
     ): MovieRepository {
-        return MovieRepositoryImpl(remoteDataSource)
+        return MovieRepositoryImpl(localDataSource = localDataSource, remoteDataSource = remoteDataSource)
     }
 }

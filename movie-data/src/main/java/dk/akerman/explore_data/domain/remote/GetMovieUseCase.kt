@@ -1,7 +1,7 @@
 package dk.akerman.explore_data.domain.remote
 
-import dk.akerman.explore_data.domain.remote.Movie
-import dk.akerman.explore_data.domain.remote.MovieRepository
+import dk.akerman.explore_data.domain.Movie
+import dk.akerman.explore_data.domain.MovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

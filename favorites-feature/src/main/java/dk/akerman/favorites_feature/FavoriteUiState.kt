@@ -1,6 +1,7 @@
 package dk.akerman.favorites_feature
 
-import dk.akerman.explore_data.domain.local.model.Movie
+import dk.akerman.explore_data.domain.Movie
+
 
 sealed class FavoriteUiState {
     object Loading : FavoriteUiState()
